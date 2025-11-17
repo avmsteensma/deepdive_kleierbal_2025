@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI-Kleierbal.uss?fileID=7433441132597879392&amp;guid=ec203c62138829442965b2b2dc7c6519&amp;type=3#UI-Kleierbal" />
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:ScrollView style="height: 144px; width: 605px; position: absolute; top: 359px; left: 1701px; right: -385px; bottom: 578px;">
+            <ui:Label text="Label" />
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>
