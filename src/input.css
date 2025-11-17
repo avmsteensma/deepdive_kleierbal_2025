@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@font-face {
+ font-family: 'Prater Sans Bold';
+  src: url("./fonts/Prater_Sans_Bold.otf");
+}
+
+body {
+    font-family: 'Prater Sans Bold';
+}

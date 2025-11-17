@@ -175,6 +175,13 @@
     text-decoration-line: underline;
   }
 }
+@font-face {
+  font-family: 'Prater Sans Bold';
+  src: url("./fonts/Prater_Sans_Bold.otf");
+}
+body {
+  font-family: 'Prater Sans Bold';
+}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
