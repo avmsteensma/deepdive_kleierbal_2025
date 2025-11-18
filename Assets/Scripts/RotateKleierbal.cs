@@ -22,6 +22,7 @@ public class RotateKleierbal : MonoBehaviour
 
     private void Awake()
     {
+        _camera = Camera.main;
         InitializeInputSystem();
     }
 
@@ -64,12 +65,26 @@ public class RotateKleierbal : MonoBehaviour
     {
         if (context.started || context.performed)
         {
-            _rotateAllowed = true;
+            if (IsMouseOverObject())
+            {
+                _rotateAllowed = true;
+            }
         }
         else if (context.canceled)
         {
             _rotateAllowed = false;
         }
+    }
+
+    private bool IsMouseOverObject()
+    {
+        Ray ray = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            // kijkt of we DIT voorwerp raken
+            return hit.transform == transform;
+        }
+        return false;
     }
 
     protected virtual Vector2 GetMouseLookInput()
