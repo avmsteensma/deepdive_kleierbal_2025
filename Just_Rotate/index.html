@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/src/output.css">
+  </head>
+  <body class="bg-[#FBF3E5]">
+    <div class="flex items-center justify-center h-screen">
+      <!-- <model-viewer> HTML element -->
+      <model-viewer class="w-100 h-100" src="kleierbal.glb" ar ar-modes="webxr scene-viewer quick-look" tone-mapping="neutral" poster="poster.webp" shadow-intensity="0" shadow-softness="0" exposure="1" auto-rotate> </model-viewer>
+      <!-- Loads <model-viewer> for browsers: -->
+      <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    </div>
+  </body>
+</html>
