@@ -1,5 +1,4 @@
 /*! tailwindcss v4.1.17 | MIT License | https://tailwindcss.com */
-@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -14,12 +13,10 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
-    --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-background: #FBF3E5;
+    --font-header: 'Prater Sans Bold';
   }
 }
 @layer base {
@@ -195,12 +192,12 @@
   .flex {
     display: flex;
   }
-  .table {
-    display: table;
-  }
   .size-26 {
     width: calc(var(--spacing) * 26);
     height: calc(var(--spacing) * 26);
+  }
+  .h-18 {
+    height: calc(var(--spacing) * 18);
   }
   .h-26 {
     height: calc(var(--spacing) * 26);
@@ -208,17 +205,11 @@
   .h-full {
     height: 100%;
   }
-  .w-4 {
-    width: calc(var(--spacing) * 4);
-  }
   .w-4\/5 {
     width: calc(4/5 * 100%);
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
-  .resize {
-    resize: both;
+  .w-6xl {
+    width: var(--container-6xl);
   }
   .items-center {
     align-items: center;
@@ -229,9 +220,8 @@
   .justify-center {
     justify-content: center;
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
   }
   .bg-background {
     background-color: var(--color-background);
@@ -239,29 +229,26 @@
   .bg-white {
     background-color: var(--color-white);
   }
-  .p-2 {
-    padding: calc(var(--spacing) * 2);
-  }
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
-  .px-30 {
-    padding-inline: calc(var(--spacing) * 30);
+  .px-12 {
+    padding-inline: calc(var(--spacing) * 12);
+  }
+  .font-header {
+    font-family: var(--font-header);
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
   .text-3xl {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
-  .sm\:w-6xl {
-    @media (width >= 40rem) {
-      width: var(--container-6xl);
+  .md\:px-30 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 30);
     }
   }
 }
@@ -270,23 +257,5 @@
   src: url("./fonts/Prater_Sans_Bold.otf");
 }
 body {
-  font-family: 'Prater Sans Bold';
-}
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    *, ::before, ::after, ::backdrop {
-      --tw-border-style: solid;
-      --tw-outline-style: solid;
-    }
-  }
+  font-family: "Inter", sans-serif;
 }

@@ -8,8 +8,16 @@
 @theme {
   --color-background: #FBF3E5;
   --color-primary: #A0532A;
+  --font-header: 'Prater Sans Bold';
 }
 
 body {
-  font-family: 'Prater Sans Bold';
+  font-family: "Inter", sans-serif;
+}
+
+.nav-link {
+
+  &:hover {
+
+  }
 }
