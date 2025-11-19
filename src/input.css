@@ -14,11 +14,15 @@
 .main-font {
   font-family: 'Prater Sans Bold';
 
-  body {
-    font-family: "Inter", sans-serif;
-  }
 
-  .nav-link {
 
-    &:hover {}
-  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.nav-link {
+
+  &:hover {}
+}
