@@ -17,12 +17,129 @@
             <img src="/src/svg/kersteierbal.svg" alt="Logo van Kerst Eierbal" class="h-full" />
         </div>
         <header
-            class="bg-white w-7xl rounded-full text-2xl px-7 py-2 flex justify-between items-center box-content my-4 mt-8 mx-auto font-header"
+            class="bg-white w-6xl rounded-full text-2xl px-7 py-2 flex justify-between items-center box-content my-4 mt-8 mx-auto font-header"
         >
-            <a class="nav-link current" href="/index.html">Home</a>
+            <a class="nav-link" href="/index.html">Home</a>
             <a class="nav-link" href="/ProductInformatie/product.html">Informatie</a>
-            <a class="nav-link" href="#">Koop nu</a>
+            <a class="nav-link" href="">Galerij</a>
+            <a class="nav-link current" href="#">Koop nu</a>
         </header>
+        <div class="w-6xl mx-auto py-4.5 my-20">
+            <div class="mx-auto">
+                <div class="text-5xl font-bold font-header text-center">Onze Kersteierballen</div>
+                <div class="text-[#6B7280] py-5 text-center">
+                    Kies uit ons assortiment van unieke Kersteierballen met bloemzaad
+                </div>
+            </div>
+        </div>
+
+        <section class="w-full max-w-3xl mx-auto">
+            <div
+                id="carousel"
+                class="relative bg-white rounded-xl shadow-md overflow-hidden"
+                aria-roledescription="carousel"
+            >
+                <!-- Slides -->
+                <div class="relative h-64 sm:h-80 md:h-96 overflow-hidden">
+                    <!-- Slide items -->
+                    <div
+                        class="absolute inset-0 slide flex items-center justify-center"
+                        data-index="0"
+                        aria-hidden="false"
+                    >
+                        <img src="" alt="Berglandschap" class="object-cover w-full h-full lazy" loading="lazy" />
+                    </div>
+                    <div
+                        class="absolute inset-0 slide flex items-center justify-center"
+                        data-index="1"
+                        aria-hidden="true"
+                    >
+                        <img
+                            data-src="https://picsum.photos/id/1016/1200/800"
+                            alt="Zee en rotsen"
+                            class="object-cover w-full h-full lazy"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div
+                        class="absolute inset-0 slide flex items-center justify-center"
+                        data-index="2"
+                        aria-hidden="true"
+                    >
+                        <img
+                            data-src="https://picsum.photos/id/1025/1200/800"
+                            alt="Herdershond close-up"
+                            class="object-cover w-full h-full lazy"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div
+                        class="absolute inset-0 slide flex items-center justify-center"
+                        data-index="3"
+                        aria-hidden="true"
+                    >
+                        <img
+                            data-src="https://picsum.photos/id/1035/1200/800"
+                            alt="Stadsgezicht bij nacht"
+                            class="object-cover w-full h-full lazy"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+
+                <!-- Overlays: Prev / Next -->
+                <button
+                    id="prevBtn"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm hover:bg-white px-3 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    aria-label="Vorige slide"
+                >
+                    <!-- left arrow -->
+                    <svg
+                        class="w-5 h-5 text-gray-700"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+
+                <button
+                    id="nextBtn"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm hover:bg-white px-3 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    aria-label="Volgende slide"
+                >
+                    <!-- right arrow -->
+                    <svg
+                        class="w-5 h-5 text-gray-700"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Indicators & controls -->
+                <div class="absolute left-1/2 -translate-x-1/2 bottom-4 z-20 flex items-center gap-2">
+                    <!-- Dots komen hier via JS -->
+                </div>
+
+                <!-- top-right: autoplay toggle -->
+                <div class="absolute right-3 top-3 z-20">
+                    <button
+                        id="autoplayToggle"
+                        class="bg-white/80 backdrop-blur-sm px-2 py-1 rounded-md shadow text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        aria-pressed="true"
+                    >
+                        Pauze
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <footer class="h-[150px] bg-primary">
             <div class="text-white w-[640px] h-full mx-auto flex justify-between items-center py-4">
                 <div class="aspect-square p-2 h-full rounded-full bg-background">
@@ -42,5 +159,6 @@
                 </div>
             </div>
         </footer>
+        <script src="script.js"></script>
     </body>
 </html>

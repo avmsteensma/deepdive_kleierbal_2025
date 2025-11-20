@@ -21,6 +21,7 @@ body {
 
 .nav-link {
   padding: 5px 20px;
+
   &:hover {
     background-color: var(--color-primary);
     color: white;
@@ -33,3 +34,16 @@ body {
   color: white;
   border-radius: 40px;
 }
+
+
+/* Kleine extra's voor vloeiende animatie */
+.slide {
+  transition: transform 500ms cubic-bezier(0.2, 0.9, 0.3, 1), opacity 500ms ease;
+  will-change: transform, opacity;
+}
+
+.touch-action-none {
+  touch-action: none;
+}
+
+/* leesbaar gedrag tijdens swipe */

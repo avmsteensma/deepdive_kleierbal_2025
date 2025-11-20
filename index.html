@@ -12,26 +12,161 @@
         <link rel="stylesheet" href="./src/output.css" />
         <title>Kesrteierbal | Home</title>
     </head>
-    <body class="bg-background flex flex-col justify-between min-h-dvh">
-        <header class="bg-white w-6xl rounded-full relative text-3xl px-3.5 py-2 flex justify-between items-center box-content mt-10 mx-auto font-header ">
+    <body class="bg-background">
+        <header
+            class="bg-white w-6xl rounded-full text-2xl px-7 py-2 flex justify-between items-center box-content my-4 mt-8 mx-auto font-header"
+        >
             <div class="h-36 absolute -left-36 -top-9">
-                <img src="./src/svg/kersteierbal.svg" alt="Logo van Kerst Eierbal" class="h-full">
+                <img src="./src/svg/kersteierbal.svg" alt="Logo van Kerst Eierbal" class="h-full" />
             </div>
-            <a class="nav-link current" href="./index.html">Home</a>
-            <a class="nav-link" href="./index.html">Informatie</a>
-            <a class="nav-link" href="./index.html">Koop nu</a>
+            <a class="nav-link current" href="#">Home</a>
+            <a class="nav-link" href="/ProductInformatie/product.html">Informatie</a>
+            <a class="nav-link" href="">Galerij</a>
+            <a class="nav-link" href="/koop-nu/Koop.html">Koop nu</a>
         </header>
-        <div class="w-7xl mx-auto py-20">
-            <div class="text-5xl font-bold text-center font-header">Kersteierbal met Bloemzaad</div>
-            <div class="text-[#6B7280] text-center">
-                Een innovatief product dat feestelijke decoratie combineert met de belofte van kleurrijke bloemen
+        <div class="w-6xl mx-auto py-4.5 my-20">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                <div class="mx-auto">
+                    <div class="text-5xl font-bold font-header">Kersteierbal met Bloemzaad</div>
+                    <div class="text-[#6B7280] py-5">
+                        Een innovatief product dat feestelijke decoratie combineert met de belofte van kleurrijke
+                        bloemen
+                    </div>
+                    <div class="flex">
+                        <button class="bg-primary text-white p-2.5 rounded-full px-4 mr-5" href="">
+                            Meer Informatie
+                        </button>
+                        <button class="bg-white p-2.5 rounded-full px-4">Naar de webshop</button>
+                    </div>
+                </div>
+
+                <div class="lg:mt-0 flex justify-end items-center">
+                    <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+                        <img
+                            src="/src/svg/kersteierbal.svg"
+                            alt="img van product"
+                            class="w-full h-full object-center object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-6xl mx-auto py-4.5 mt-10">
+            <div class="py-10">
+                <div class="text-5xl font-bold text-center font-header">Kersteierbal met Bloemzaad</div>
+                <div class="text-[#6B7280] py-5 text-center">
+                    Ontdek de unieke eigenschappen van onze kerstballen met bloemzaad
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="pt-6">
+                        <div class="flow-root bg-white rounded-lg px-6 pb-8">
+                            <div class="-mt-6">
+                                <div>
+                                    <span
+                                        class="inline-flex items-center justify-center p-3 bg-primary rounded-md shadow-lg"
+                                    >
+                                        <svg
+                                            class="h-6 w-6 text-white"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="{2}"
+                                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                                            />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Duurzaam</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    Onze kerstballen zijn gemaakt van duurzame materialen en bevatten hoogwaardige
+                                    bloemzaden.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <div class="flow-root bg-white rounded-lg px-6 pb-8">
+                            <div class="-mt-6">
+                                <div>
+                                    <span
+                                        class="inline-flex items-center justify-center p-3 bg-primary rounded-md shadow-lg"
+                                    >
+                                        <svg
+                                            class="h-6 w-6 text-white"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="{2}"
+                                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                                            />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Dubbel gebruik</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    Eerst een prachtige kerstversiering, daarna een bron van kleurrijke bloemen voor in
+                                    uw tuin.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <div class="flow-root bg-white rounded-lg px-6 pb-8">
+                            <div class="-mt-6">
+                                <div>
+                                    <span
+                                        class="inline-flex items-center justify-center p-3 bg-primary rounded-md shadow-lg"
+                                    >
+                                        <svg
+                                            class="h-6 w-6 text-white"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="{2}"
+                                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                                            />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Uniek cadeau</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    Een origineel geschenk dat blijft geven, perfect voor de feestdagen en speciale
+                                    gelegenheden.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <footer class="h-[150px] bg-primary">
             <div class="text-white w-[640px] h-full mx-auto flex justify-between items-center py-4">
                 <div class="aspect-square p-2 h-full rounded-full bg-background">
-                    <img src="./src/svg/kersteierbal.svg" alt="Logo van Kerst Eierbal" class="h-full mx-auto relative bottom-1px">
+                    <img
+                        src="./src/svg/kersteierbal.svg"
+                        alt="Logo van Kerst Eierbal"
+                        class="h-full mx-auto relative bottom-1px"
+                    />
                 </div>
                 <div>
                     <h3 class="text-xl font-header">Contact</h3>
@@ -41,8 +176,8 @@
                 <div class="flex flex-col items-center">
                     <h3 class="text-xl font-header">Volg ons</h3>
                     <div class="flex">
-                        <img src="/src/svg/Instagram.svg" alt="Instagram" class="me-2">
-                        <img src="/src/svg/Facebook.svg" alt="Facebook">
+                        <img src="/src/svg/Instagram.svg" alt="Instagram" class="me-2" />
+                        <img src="/src/svg/Facebook.svg" alt="Facebook" />
                     </div>
                 </div>
             </div>
