@@ -20,6 +20,16 @@ body {
 }
 
 .nav-link {
+  padding: 5px 20px;
+  &:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 40px;
+  }
+}
 
-  &:hover {}
+.current {
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 40px;
 }

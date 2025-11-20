@@ -9,6 +9,7 @@
       "Courier New", monospace;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-5xl: 64rem;
     --container-6xl: 72rem;
     --container-7xl: 80rem;
     --text-base: 1rem;
@@ -251,11 +252,38 @@
   .h-\[150px\] {
     height: 150px;
   }
+  .h-28 {
+    height: calc(var(--spacing) * 28);
+  }
+  .h-30 {
+    height: calc(var(--spacing) * 30);
+  }
+  .h-38 {
+    height: calc(var(--spacing) * 38);
+  }
+  .h-40 {
+    height: calc(var(--spacing) * 40);
+  }
+  .h-\[65px\] {
+    height: 65px;
+  }
+  .h-\[70px\] {
+    height: 70px;
+  }
+  .h-\[150px\] {
+    height: 150px;
+  }
+  .h-\[160px\] {
+    height: 160px;
+  }
   .h-full {
     height: 100%;
   }
   .w-6 {
     width: calc(var(--spacing) * 6);
+  }
+  .w-5xl {
+    width: var(--container-5xl);
   }
   .w-6xl {
     width: var(--container-6xl);
@@ -364,6 +392,15 @@
   }
   .text-center {
     text-align: center;
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .pe-12 {
+    padding-inline-end: calc(var(--spacing) * 12);
   }
   .font-header {
     font-family: var(--font-header);
