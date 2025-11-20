@@ -33,112 +33,273 @@
             </div>
         </div>
 
-        <section class="w-full max-w-3xl mx-auto">
-            <div
-                id="carousel"
-                class="relative bg-white rounded-xl shadow-md overflow-hidden"
-                aria-roledescription="carousel"
-            >
-                <!-- Slides -->
-                <div class="relative h-64 sm:h-80 md:h-96 overflow-hidden">
-                    <!-- Slide items -->
+        <!-- Product sectie binnen max-w-6xl -->
+        <section class="w-full max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-40">
+            <!-- Afbeelding links (optioneel nog een beeld) -->
+            <div class="bg-white rounded-xl overflow-hidden shadow hidden md:block">
+                <section class="w-full h-full max-w-6xl mx-auto">
                     <div
-                        class="absolute inset-0 slide flex items-center justify-center"
-                        data-index="0"
-                        aria-hidden="false"
+                        id="carousel"
+                        class="relative bg-white rounded-xl shadow-md overflow-hidden"
+                        aria-roledescription="carousel"
                     >
-                        <img src="" alt="Berglandschap" class="object-cover w-full h-full lazy" loading="lazy" />
+                        <!-- Slides -->
+                        <div class="relative h-64 sm:h-80 md:h-96 overflow-hidden">
+                            <!-- Slide items -->
+                            <div
+                                class="absolute inset-0 slide flex items-center justify-center"
+                                data-index="0"
+                                aria-hidden="false"
+                            >
+                                <img
+                                    src="/src/img/KleierbalnDoos.JPG"
+                                    alt="Berglandschap"
+                                    class="object-cover w-full h-full lazy"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div
+                                class="absolute inset-0 slide flex items-center justify-center"
+                                data-index="1"
+                                aria-hidden="true"
+                            >
+                                <img
+                                    src="/src/img/KleierbalGroningen.JPG"
+                                    alt="Zee en rotsen"
+                                    class="object-cover w-full h-full lazy"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div
+                                class="absolute inset-0 slide flex items-center justify-center"
+                                data-index="2"
+                                aria-hidden="true"
+                            >
+                                <img
+                                    src="/src/img/KleierbalFront.JPG"
+                                    alt="Herdershond close-up"
+                                    class="object-cover w-full h-full lazy"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div
+                                class="absolute inset-0 slide flex items-center justify-center"
+                                data-index="3"
+                                aria-hidden="true"
+                            >
+                                <img
+                                    src="/src/img/KleierbalDecor.JPG"
+                                    alt="Stadsgezicht bij nacht"
+                                    class="object-cover w-full h-full lazy"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div
+                                class="absolute inset-0 slide flex items-center justify-center"
+                                data-index="4"
+                                aria-hidden="true"
+                            >
+                                <img
+                                    src="/src/img/KLeierbalSide.JPG"
+                                    alt="Stadsgezicht bij nacht"
+                                    class="object-cover w-full h-full lazy"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div
+                                class="absolute inset-0 slide flex items-center justify-center"
+                                data-index="5"
+                                aria-hidden="true"
+                            >
+                                <img
+                                    src="/src/img/BeerEnKleierbal2.JPG"
+                                    alt="Stadsgezicht bij nacht"
+                                    class="object-cover w-full h-full lazy"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Overlays: Prev / Next -->
+                        <button
+                            id="prevBtn"
+                            class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm hover:bg-white px-3 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-primary"
+                            aria-label="Vorige slide"
+                        >
+                            <!-- left arrow -->
+                            <svg
+                                class="w-5 h-5 text-gray-700"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+
+                        <button
+                            id="nextBtn"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm hover:bg-white px-3 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-primary"
+                            aria-label="Volgende slide"
+                        >
+                            <!-- right arrow -->
+                            <svg
+                                class="w-5 h-5 text-gray-700"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Indicators & controls -->
+                        <div class="absolute left-1/2 -translate-x-1/2 bottom-4 z-20 flex items-center gap-2">
+                            <!-- Dots komen hier via JS -->
+                        </div>
+
+                        <!-- top-right: autoplay toggle -->
+                        <div class="absolute right-3 top-3 z-20">
+                            <button
+                                id="autoplayToggle"
+                                class="bg-white/80 backdrop-blur-sm px-2 py-1 rounded-md shadow text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                                aria-pressed="true"
+                            >
+                                Pauze
+                            </button>
+                        </div>
                     </div>
-                    <div
-                        class="absolute inset-0 slide flex items-center justify-center"
-                        data-index="1"
-                        aria-hidden="true"
-                    >
-                        <img
-                            data-src="https://picsum.photos/id/1016/1200/800"
-                            alt="Zee en rotsen"
-                            class="object-cover w-full h-full lazy"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div
-                        class="absolute inset-0 slide flex items-center justify-center"
-                        data-index="2"
-                        aria-hidden="true"
-                    >
-                        <img
-                            data-src="https://picsum.photos/id/1025/1200/800"
-                            alt="Herdershond close-up"
-                            class="object-cover w-full h-full lazy"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div
-                        class="absolute inset-0 slide flex items-center justify-center"
-                        data-index="3"
-                        aria-hidden="true"
-                    >
-                        <img
-                            data-src="https://picsum.photos/id/1035/1200/800"
-                            alt="Stadsgezicht bij nacht"
-                            class="object-cover w-full h-full lazy"
-                            loading="lazy"
-                        />
-                    </div>
+                </section>
+            </div>
+
+            <!-- Info rechts -->
+            <div class="rounded-xl">
+                <div class="flex items-start justify-between gap-4">
+                    <h1 class="text-4xl md:text-5xl font-header font-bold leading-tight">Kerstbal met Bloemzaad</h1>
+                    <div class="text-2xl md:text-3xl font-semibold">€12,50</div>
                 </div>
+                <p class="text-[#6B7280] mt-4">
+                    Een unieke combinatie van feestelijke decoratie en bloeiende natuur. Ontdek onze bijzondere
+                    kerstballen met bloemzaden.
+                </p>
 
-                <!-- Overlays: Prev / Next -->
-                <button
-                    id="prevBtn"
-                    class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm hover:bg-white px-3 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    aria-label="Vorige slide"
-                >
-                    <!-- left arrow -->
-                    <svg
-                        class="w-5 h-5 text-gray-700"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                    >
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-
-                <button
-                    id="nextBtn"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm hover:bg-white px-3 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    aria-label="Volgende slide"
-                >
-                    <!-- right arrow -->
-                    <svg
-                        class="w-5 h-5 text-gray-700"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                    >
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-
-                <!-- Indicators & controls -->
-                <div class="absolute left-1/2 -translate-x-1/2 bottom-4 z-20 flex items-center gap-2">
-                    <!-- Dots komen hier via JS -->
-                </div>
-
-                <!-- top-right: autoplay toggle -->
-                <div class="absolute right-3 top-3 z-20">
+                <!-- Aantal selector -->
+                <div class="mt-8 flex items-center justify-center gap-6">
                     <button
-                        id="autoplayToggle"
-                        class="bg-white/80 backdrop-blur-sm px-2 py-1 rounded-md shadow text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        aria-pressed="true"
+                        id="qtyMinus"
+                        class="w-12 h-12 rounded-full bg-background text-2xl flex items-center justify-center hover:opacity-90"
+                        aria-label="Verlaag aantal"
                     >
-                        Pauze
+                        −
+                    </button>
+                    <output id="qtyValue" class="text-3xl font-bold" for="qtyInput">1</output>
+                    <button
+                        id="qtyPlus"
+                        class="w-12 h-12 rounded-full bg-background text-2xl flex items-center justify-center hover:opacity-90"
+                        aria-label="Verhoog aantal"
+                    >
+                        +
+                    </button>
+                    <input id="qtyInput" type="number" min="1" value="1" class="sr-only" aria-hidden="true" />
+                </div>
+
+                <!-- Koop knop -->
+                <div class="mt-8">
+                    <button
+                        id="koopNuBtn"
+                        class="w-full bg-primary text-white text-2xl md:text-3xl py-5 rounded-xl shadow hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                    >
+                        Koop Nu
                     </button>
                 </div>
             </div>
         </section>
+
+        <!-- MODAL: Checkout -->
+        <div id="checkoutBackdrop" class="inset-0 hidden bg-black/50 flex justify-center fixed flex-col pl-66">
+            <div
+                class="bg-white w-full md:max-w-xl rounded-t-2xl md:rounded-2xl p-6 md:p-8 shadow-lg flex flex-col justify-center"
+            >
+                <div class="flex items-start justify-between">
+                    <h2 class="text-2xl font-header font-bold">Bestellen</h2>
+                    <button id="modalClose" class="text-gray-500 hover:text-gray-800" aria-label="Sluiten">✕</button>
+                </div>
+                <form id="checkoutForm" class="mt-6 grid grid-cols-1 gap-4" novalidate>
+                    <div>
+                        <label for="name" class="block text-sm font-medium">Naam</label>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            required
+                            class="mt-1 w-full rounded-md border px-3 py-2"
+                            placeholder="Jouw naam"
+                        />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium">E‑mail</label>
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            required
+                            class="mt-1 w-full rounded-md border px-3 py-2"
+                            placeholder="jij@example.nl"
+                        />
+                    </div>
+                    <div>
+                        <label for="postcode" class="block text-sm font-medium">Postcode</label>
+                        <input
+                            id="postcode"
+                            name="postcode"
+                            type="text"
+                            required
+                            pattern="^[1-9][0-9]{3}\s?[A-Za-z]{2}$"
+                            class="mt-1 w-full rounded-md border px-3 py-2"
+                            placeholder="1234 AB"
+                        />
+                        <p class="text-xs text-gray-500 mt-1">Formaat: 1234 AB</p>
+                    </div>
+                    <div>
+                        <label for="donation" class="block text-sm font-medium">Extra donatie (optioneel)</label>
+                        <div class="mt-1 flex items-center gap-2">
+                            <span class="px-3 py-2 rounded-md bg-gray-100">€</span>
+                            <input
+                                id="donation"
+                                name="donation"
+                                type="number"
+                                min="0"
+                                step="0.50"
+                                inputmode="decimal"
+                                class="flex-1 rounded-md border px-3 py-2"
+                                placeholder="0,00"
+                            />
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between text-sm text-gray-600 mt-2">
+                        <span id="summaryText">Totaal: €12,50 × 1 = €12,50</span>
+                    </div>
+
+                    <div class="mt-4 flex gap-3">
+                        <button
+                            type="button"
+                            id="cancelBtn"
+                            class="flex-1 px-4 py-3 rounded-lg border hover:bg-gray-50"
+                        >
+                            Annuleren
+                        </button>
+                        <button
+                            type="submit"
+                            class="flex-1 px-4 py-3 rounded-lg bg-primary text-white hover:brightness-95"
+                        >
+                            Betalen
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <footer class="h-[150px] bg-primary">
             <div class="text-white w-[640px] h-full mx-auto flex justify-between items-center py-4">

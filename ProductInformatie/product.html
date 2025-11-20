@@ -9,6 +9,7 @@
             href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
             rel="stylesheet"
         />
+        <script defer src="script.js"></script>
         <link rel="stylesheet" href="/src/output.css" />
         <title>Product Informatie</title>
     </head>
@@ -30,8 +31,8 @@
                 Een innovatief product dat feestelijke decoratie combineert met de belofte van kleurrijke bloemen
             </div>
         </div>
-        
-        <div class="bg-white rounded-lg w-6xl box-content px-7 py-4.5 mx-auto mt-10">
+
+        <div class="bg-white rounded-lg w-6xl box-content px-7 py-4.5 mx-auto mt-10 my-[15rem]">
             <div class="lg:grid lg:grid-cols-2 lg:gap-8">
                 <div class="mx-auto mr-6">
                     <h2 class="text-5xl font-bold">Over onze Kersteierbal</h2>
@@ -56,7 +57,7 @@
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth="{2}"
+                                            strokeWidth="2"
                                             d="M5 13l4 4L19 7"
                                         />
                                     </svg>
@@ -84,7 +85,7 @@
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth="{2}"
+                                            strokeWidth="2"
                                             d="M5 13l4 4L19 7"
                                         />
                                     </svg>
@@ -113,7 +114,7 @@
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth="{2}"
+                                            strokeWidth="2"
                                             d="M5 13l4 4L19 7"
                                         />
                                     </svg>
@@ -141,7 +142,7 @@
             </div>
         </div>
 
-        <div class="w-6xl mx-auto py-20">
+        <div class="w-6xl mx-auto py-[5rem]">
             <div class="lg:grid lg:grid-cols-3 lg:gap-8">
                 <div>
                     <h2 class="text-4xl font-bold">Hoe het werkt</h2>
@@ -166,7 +167,7 @@
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth="{2}"
+                                            strokeWidth="2"
                                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                                         />
                                     </svg>
@@ -192,19 +193,19 @@
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth="{2}"
+                                            strokeWidth="2"
                                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                                         />
                                     </svg>
                                 </div>
                                 <p class="ml-16 text-lg leading-6 font-medium">Stap 2: Plant in de grond</p>
                             </dt>
-                            <div class="mt-2 ml-16 text-base text-[#6B7280]">
+                            <dd class="mt-2 ml-16 text-base text-[#6B7280]">
                                 Na de feestdagen plant u de Kersteierbal in een pot of in de tuin.
-                            </div>
+                            </dd>
                         </div>
                         <div class="relative">
-                            <div>
+                            <dt>
                                 <div
                                     class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white"
                                 >
@@ -218,19 +219,19 @@
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth="{2}"
+                                            strokeWidth="2"
                                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                                         />
                                     </svg>
                                 </div>
                                 <p class="ml-16 text-lg leading-6 font-medium">Stap 3: Geniet van de bloemen</p>
-                            </div>
-                            <div class="mt-2 ml-16 text-base text-[#6B7280]">
+                            </dt>
+                            <dd class="mt-2 ml-16 text-base text-[#6B7280]">
                                 Water regelmatig en zie hoe prachtige bloemen uit uw Kersteierbal groeien.
-                        </div>
+                            </dd>
                         </div>
                         <div class="relative">
-                            <div>
+                            <dt>
                                 <div
                                     class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white"
                                 >
@@ -244,13 +245,13 @@
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth="{2}"
+                                            strokeWidth="2"
                                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                                         />
                                     </svg>
                                 </div>
                                 <p class="ml-16 text-lg leading-6 font-medium">Milieuvriendelijk</p>
-                            </div>
+                            </dt>
                             <dd class="mt-2 ml-16 text-base text-[#6B7280]">
                                 De Kersteierbal is volledig biologisch afbreekbaar en draagt bij aan de biodiversiteit.
                             </dd>
@@ -259,7 +260,142 @@
                 </div>
             </div>
         </div>
-            <footer class="h-[150px] bg-primary">
+        <section class="w-full h-full max-w-6xl mx-auto my-15 mb-[20rem]">
+            <div
+                id="carousel"
+                class="relative bg-white rounded-xl shadow-md overflow-hidden"
+                aria-roledescription="carousel"
+            >
+                <!-- Slides -->
+                <div class="relative h-64 sm:h-80 md:h-96 overflow-hidden">
+                    <!-- Slide items -->
+                    <div
+                        class="absolute inset-0 slide flex items-center justify-center"
+                        data-index="0"
+                        aria-hidden="false"
+                    >
+                        <img
+                            src="/src/img/ReuklozeKamille.jpg"
+                            alt="Berglandschap"
+                            class="object-cover w-full h-full lazy"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div
+                        class="absolute inset-0 slide flex items-center justify-center"
+                        data-index="1"
+                        aria-hidden="true"
+                    >
+                        <img
+                            src="/src/img/Nachtkoekoeksbloem.jpg"
+                            alt="Zee en rotsen"
+                            class="object-cover w-full h-full lazy"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div
+                        class="absolute inset-0 slide flex items-center justify-center"
+                        data-index="2"
+                        aria-hidden="true"
+                    >
+                        <img
+                            src="/src/img/Korenbloem.jpg"
+                            alt="Herdershond close-up"
+                            class="object-cover w-full h-full lazy"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div
+                        class="absolute inset-0 slide flex items-center justify-center"
+                        data-index="3"
+                        aria-hidden="true"
+                    >
+                        <img
+                            src="/src/img/Koekruid.jpg"
+                            alt="Stadsgezicht bij nacht"
+                            class="object-cover w-full h-full lazy"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div
+                        class="absolute inset-0 slide flex items-center justify-center"
+                        data-index="4"
+                        aria-hidden="true"
+                    >
+                        <img
+                            src="/src/img/Kegelsilene.jpg"
+                            alt="Stadsgezicht bij nacht"
+                            class="object-cover w-full h-full lazy"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div
+                        class="absolute inset-0 slide flex items-center justify-center"
+                        data-index="5"
+                        aria-hidden="true"
+                    >
+                        <img
+                            src="/src/img/GroteKlaproos.jpg"
+                            alt="Stadsgezicht bij nacht"
+                            class="object-cover w-full h-full lazy"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+
+                <!-- Overlays: Prev / Next -->
+                <button
+                    id="prevBtn"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm hover:bg-white px-3 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-primary"
+                    aria-label="Vorige slide"
+                >
+                    <!-- left arrow -->
+                    <svg
+                        class="w-5 h-5 text-gray-700"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+
+                <button
+                    id="nextBtn"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-white/80 backdrop-blur-sm hover:bg-white px-3 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-primary"
+                    aria-label="Volgende slide"
+                >
+                    <!-- right arrow -->
+                    <svg
+                        class="w-5 h-5 text-gray-700"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Indicators & controls -->
+                <div class="absolute left-1/2 -translate-x-1/2 bottom-4 z-20 flex items-center gap-2">
+                    <!-- Dots komen hier via JS -->
+                </div>
+
+                <!-- top-right: autoplay toggle -->
+                <div class="absolute right-3 top-3 z-20">
+                    <button
+                        id="autoplayToggle"
+                        class="bg-white/80 backdrop-blur-sm px-2 py-1 rounded-md shadow text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                        aria-pressed="true"
+                    >
+                        Pauze
+                    </button>
+                </div>
+            </div>
+        </section>
+        <footer class="h-[150px] bg-primary">
             <div class="text-white w-[640px] h-full mx-auto flex justify-between items-center py-4">
                 <div class="aspect-square p-2 h-full rounded-full bg-background">
                     <img src="/src/svg/kersteierbal.svg" alt="Logo van Kerst Eierbal" class="h-full mx-auto" />
@@ -277,5 +413,6 @@
                     </div>
                 </div>
             </div>
+        </footer>
     </body>
 </html>
