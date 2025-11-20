@@ -1,10 +1,35 @@
 @import "tailwindcss";
 
 @font-face {
- font-family: 'Prater Sans Bold';
+  font-family: 'Prater Sans Bold';
   src: url("./fonts/Prater_Sans_Bold.otf");
 }
 
+@theme {
+  --color-background: #FBF3E5;
+  --color-primary: #A0532A;
+  --font-header: 'Prater Sans Bold';
+}
+
+.font-header {
+  font-family: 'Prater Sans Bold';
+}
+
 body {
-    font-family: 'Prater Sans Bold';
+  font-family: "Inter", sans-serif;
+}
+
+.nav-link {
+  padding: 5px 20px;
+  &:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 40px;
+  }
+}
+
+.current {
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 40px;
 }
