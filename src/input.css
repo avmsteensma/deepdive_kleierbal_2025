@@ -11,6 +11,10 @@
   --font-header: 'Prater Sans Bold';
 }
 
+.font-header {
+  font-family: 'Prater Sans Bold';
+}
+
 body {
   font-family: "Inter", sans-serif;
 }
