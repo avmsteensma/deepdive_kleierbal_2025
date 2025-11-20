@@ -11,13 +11,18 @@
   --font-header: 'Prater Sans Bold';
 }
 
+.main-font {
+  font-family: 'Prater Sans Bold';
+
+
+
+}
+
 body {
   font-family: "Inter", sans-serif;
 }
 
 .nav-link {
 
-  &:hover {
-
-  }
+  &:hover {}
 }
