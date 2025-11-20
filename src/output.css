@@ -192,14 +192,20 @@
   .relative {
     position: relative;
   }
+  .-top-9 {
+    top: calc(var(--spacing) * -9);
+  }
+  .-left-36 {
+    left: calc(var(--spacing) * -36);
+  }
   .mx-auto {
     margin-inline: auto;
   }
   .my-4 {
     margin-block: calc(var(--spacing) * 4);
   }
-  .my-9 {
-    margin-block: calc(var(--spacing) * 9);
+  .me-2 {
+    margin-inline-end: calc(var(--spacing) * 2);
   }
   .me-12 {
     margin-inline-end: calc(var(--spacing) * 12);
@@ -234,9 +240,6 @@
   .flex {
     display: flex;
   }
-  .table {
-    display: table;
-  }
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
@@ -246,44 +249,23 @@
   .h-12 {
     height: calc(var(--spacing) * 12);
   }
+  .h-36 {
+    height: calc(var(--spacing) * 36);
+  }
   .h-38 {
     height: calc(var(--spacing) * 38);
   }
   .h-\[150px\] {
     height: 150px;
-  }
-  .h-28 {
-    height: calc(var(--spacing) * 28);
-  }
-  .h-30 {
-    height: calc(var(--spacing) * 30);
-  }
-  .h-38 {
-    height: calc(var(--spacing) * 38);
-  }
-  .h-40 {
-    height: calc(var(--spacing) * 40);
-  }
-  .h-\[65px\] {
-    height: 65px;
-  }
-  .h-\[70px\] {
-    height: 70px;
-  }
-  .h-\[150px\] {
-    height: 150px;
-  }
-  .h-\[160px\] {
-    height: 160px;
   }
   .h-full {
     height: 100%;
   }
+  .min-h-dvh {
+    min-height: 100dvh;
+  }
   .w-6 {
     width: calc(var(--spacing) * 6);
-  }
-  .w-5xl {
-    width: var(--container-5xl);
   }
   .w-6xl {
     width: var(--container-6xl);
@@ -300,17 +282,8 @@
   .w-full {
     width: 100%;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
   .shrink-0 {
     flex-shrink: 0;
-  }
-  .border-collapse {
-    border-collapse: collapse;
-  }
-  .resize {
-    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -350,10 +323,6 @@
   .rounded-md {
     border-radius: var(--radius-md);
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .bg-background {
     background-color: var(--color-background);
   }
@@ -371,6 +340,9 @@
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
+  }
+  .px-3\.5 {
+    padding-inline: calc(var(--spacing) * 3.5);
   }
   .px-7 {
     padding-inline: calc(var(--spacing) * 7);
@@ -393,21 +365,16 @@
   .text-center {
     text-align: center;
   }
-  .py-2 {
-    padding-block: calc(var(--spacing) * 2);
-  }
-  .py-4 {
-    padding-block: calc(var(--spacing) * 4);
-  }
-  .pe-12 {
-    padding-inline-end: calc(var(--spacing) * 12);
-  }
   .font-header {
     font-family: var(--font-header);
   }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
   .text-4xl {
     font-size: var(--text-4xl);
@@ -446,13 +413,6 @@
   }
   .text-white {
     color: var(--color-white);
-  }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .sm\:grid {
     @media (width >= 40rem) {
@@ -529,15 +489,23 @@
 body {
   font-family: "Inter", sans-serif;
 }
+.nav-link {
+  padding: 5px 20px;
+  &:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 40px;
+  }
+}
+.current {
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 40px;
+}
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;
   initial-value: 0;
-}
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-leading {
   syntax: "*";
@@ -547,19 +515,12 @@ body {
   syntax: "*";
   inherits: false;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-space-y-reverse: 0;
-      --tw-border-style: solid;
       --tw-leading: initial;
       --tw-font-weight: initial;
-      --tw-outline-style: solid;
     }
   }
 }
