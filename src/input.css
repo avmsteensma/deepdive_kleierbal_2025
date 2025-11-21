@@ -17,6 +17,15 @@
 
 body {
   font-family: "Inter", sans-serif;
+  cursor: url('/src/cursor/Kleierbal.png'), auto;
+}
+
+a,
+button,
+input[type="button"],
+input[type="submit"],
+.nav-link {
+  cursor: url('/src/cursor/Kleierbal.png'), auto;
 }
 
 .nav-link {

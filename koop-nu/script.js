@@ -1,11 +1,21 @@
 (function () {
-    e;
     const carousel = document.getElementById("carousel");
+    if (!carousel) return;
+
     const slides = Array.from(carousel.querySelectorAll(".slide"));
+    if (slides.length === 0) return;
+
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     const autoplayToggle = document.getElementById("autoplayToggle");
-    const dotsContainer = carousel.querySelector("div.absolute.left-1\\/2"); // indicator container
+    let dotsContainer = carousel.querySelector("div.absolute.left-1\\/2"); // indicator container
+    if (!dotsContainer) {
+        // Fallback: maak de container als die niet bestaat
+        dotsContainer = document.createElement("div");
+        dotsContainer.className = "absolute left-1/2 -translate-x-1/2 bottom-4 z-20 flex items-center gap-2";
+        carousel.appendChild(dotsContainer);
+    }
+
     const AUTO_DELAY = 4000;
 
     let current = 0;
@@ -21,7 +31,8 @@
             s.setAttribute("aria-hidden", i === current ? "false" : "true");
         });
 
-        // Create dots
+        // Create dots (reset om dubbele dots te voorkomen)
+        dotsContainer.innerHTML = "";
         slides.forEach((_, i) => {
             const btn = document.createElement("button");
             btn.className = "w-3 h-3 rounded-full focus:outline-none ring-0";
@@ -39,9 +50,9 @@
         lazyLoadSlides();
 
         // Event listeners
-        prevBtn.addEventListener("click", prev);
-        nextBtn.addEventListener("click", next);
-        autoplayToggle.addEventListener("click", toggleAutoplay);
+        if (prevBtn) prevBtn.addEventListener("click", prev);
+        if (nextBtn) nextBtn.addEventListener("click", next);
+        if (autoplayToggle) autoplayToggle.addEventListener("click", toggleAutoplay);
 
         // Pause on hover / focus
         carousel.addEventListener("mouseenter", pauseAutoplay);
@@ -142,15 +153,19 @@
         if (!autoplay) return;
         clearInterval(autoplayTimer);
         autoplayTimer = setInterval(() => next(), AUTO_DELAY);
-        autoplayToggle.textContent = "Pauze";
-        autoplayToggle.setAttribute("aria-pressed", "true");
+        if (autoplayToggle) {
+            autoplayToggle.textContent = "Pauze";
+            autoplayToggle.setAttribute("aria-pressed", "true");
+        }
     }
 
     function pauseAutoplay() {
         clearInterval(autoplayTimer);
         autoplayTimer = null;
-        autoplayToggle.textContent = "Play";
-        autoplayToggle.setAttribute("aria-pressed", "false");
+        if (autoplayToggle) {
+            autoplayToggle.textContent = "Play";
+            autoplayToggle.setAttribute("aria-pressed", "false");
+        }
     }
 
     function resumeAutoplayIfEnabled() {
@@ -184,7 +199,7 @@
             // optional: preview slide movement (not implemented to keep logic simple)
         });
 
-        el.addEventListener("pointerup", (e) => {
+        el.addEventListener("pointerup", () => {
             if (!isPointer) return;
             isPointer = false;
             if (Math.abs(dx) > 50) {
@@ -200,133 +215,103 @@
         });
     }
 
-    // ====== PRODUCT / CHECKOUT LOGICA ======
-    const PRICE_CENTS = 1250; // €12,50 per stuk
-    const fmt = new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR" });
+    // start everything
+    init();
+})();
 
-    // DOM refs
-    const qtyMinus = document.getElementById("qtyMinus");
-    const qtyPlus = document.getElementById("qtyPlus");
-    const qtyValue = document.getElementById("qtyValue");
-    const qtyInput = document.getElementById("qtyInput");
-    const koopNuBtn = document.getElementById("koopNuBtn");
 
-    const checkoutBackdrop = document.getElementById("checkoutBackdrop");
+// Koop Nu + Checkout functionaliteit
+(function () {
+    // Elementen
+    const koopBtn = document.getElementById("koopNuBtn");
+    const backdrop = document.getElementById("checkoutBackdrop");
+    const form = document.getElementById("checkoutForm");
     const modalClose = document.getElementById("modalClose");
     const cancelBtn = document.getElementById("cancelBtn");
-    const checkoutForm = document.getElementById("checkoutForm");
+
+    const qtyMinus = document.getElementById("qtyMinus");
+    const qtyPlus = document.getElementById("qtyPlus");
+    const qtyInput = document.getElementById("qtyInput");
+    const qtyValue = document.getElementById("qtyValue");
+    const donation = document.getElementById("donation");
     const summaryText = document.getElementById("summaryText");
-    const donationInput = document.getElementById("donation");
 
-    function getQty() {
-        const n = parseInt(qtyInput?.value || "1", 10);
-        return isNaN(n) || n < 1 ? 1 : n;
-    }
+    // Prijs per stuk (EUR)
+    const PRICE = 12.5;
 
-    function setQty(n) {
-        const clamped = Math.max(1, Math.floor(n));
-        if (qtyInput) qtyInput.value = String(clamped);
-        if (qtyValue) qtyValue.textContent = String(clamped);
-
-        updateSummary();
-    }
-
-    function eurosToCentsStr(valStr) {
-        // accept comma or dot; returns cents integer
-        if (!valStr) return 0;
-        const normalized = String(valStr).replace(/\./g, "").replace(/,/, ".");
-        const num = Number(normalized);
-        if (isNaN(num) || num < 0) return 0;
-        return Math.round(num * 100);
-    }
-
-    function calcTotalCents() {
-        const items = getQty();
-        const donationCents = donationInput ? eurosToCentsStr(donationInput.value) : 0;
-        return items * PRICE_CENTS + donationCents;
-    }
-
-    function updateSummary() {
-        if (!summaryText) return;
-        const items = getQty();
-        const base = items * PRICE_CENTS;
-        const donationCents = donationInput ? eurosToCentsStr(donationInput.value) : 0;
-        const total = base + donationCents;
-        const parts = [`Totaal: ${fmt.format(base / 100)} × ${items} = ${fmt.format((items * PRICE_CENTS) / 100)}`];
-        if (donationCents > 0) parts.push(` + Donatie ${fmt.format(donationCents / 100)}`);
-        parts.push(` → ${fmt.format(total / 100)}`);
-        summaryText.textContent = parts.join(" ");
-    }
-
+    // Helpers
     function openModal() {
-        if (!checkoutBackdrop) return;
-        checkoutBackdrop.classList.remove("hidden");
-        // prevent background scroll on mobile
-        document.documentElement.style.overflow = "hidden";
-
-        // Verberg de carousel knoppen
-        prevBtn.style.display = "none";
-        autoplayToggle.style.display = "none";
-        nextBtn.style.display = "none";
-
-        updateSummary();
+        if (!backdrop) return;
+        backdrop.classList.remove("hidden");
     }
 
     function closeModal() {
-        if (!checkoutBackdrop) return;
-        checkoutBackdrop.classList.add("hidden");
-        document.documentElement.style.overflow = "";
-
-        // Toon de carousel knoppen weer
-        prevBtn.style.display = "";
-        autoplayToggle.style.display = "";
-        nextBtn.style.display = "";
+        if (!backdrop) return;
+        backdrop.classList.add("hidden");
     }
 
-    function wireProduct() {
-        if (qtyMinus) qtyMinus.addEventListener("click", () => setQty(getQty() - 1));
-        if (qtyPlus) qtyPlus.addEventListener("click", () => setQty(getQty() + 1));
-        if (qtyInput) qtyInput.addEventListener("change", () => setQty(Number(qtyInput.value)));
-        if (koopNuBtn) {
-            koopNuBtn.addEventListener("click", openModal);
-        }
+    function parseNumber(value) {
+        if (!value) return 0;
+        // Ondersteun zowel komma als punt als decimaalteken
+        const n = parseFloat(String(value).replace(",", "."));
+        return isNaN(n) ? 0 : n;
+    }
 
-        if (donationInput) donationInput.addEventListener("input", updateSummary);
+    function updateSummary() {
+        if (!summaryText || !qtyInput || !qtyValue) return;
+        const qty = Math.max(1, parseInt(qtyInput.value || "1", 10) || 1);
+        qtyInput.value = String(qty);
+        qtyValue.textContent = String(qty);
 
-        if (checkoutBackdrop)
-            checkoutBackdrop.addEventListener("click", (e) => {
-                if (e.target === checkoutBackdrop) closeModal();
-            });
-        if (modalClose) modalClose.addEventListener("click", closeModal);
-        if (cancelBtn) cancelBtn.addEventListener("click", closeModal);
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && checkoutBackdrop && !checkoutBackdrop.classList.contains("hidden")) {
-                closeModal();
-            }
+        const extra = donation ? parseNumber(donation.value) : 0;
+        const total = qty * PRICE + extra;
+
+        const priceStr = PRICE.toLocaleString("nl-NL", { style: "currency", currency: "EUR" });
+        const totalStr = total.toLocaleString("nl-NL", { style: "currency", currency: "EUR" });
+        summaryText.textContent = `Totaal: ${priceStr} × ${qty} = ${totalStr}`;
+    }
+
+    // Event listeners
+    if (koopBtn) koopBtn.addEventListener("click", openModal);
+    if (modalClose) modalClose.addEventListener("click", closeModal);
+    if (cancelBtn) cancelBtn.addEventListener("click", closeModal);
+    if (backdrop)
+        backdrop.addEventListener("click", (e) => {
+            if (e.target === backdrop) closeModal();
         });
 
-        if (checkoutForm) {
-            checkoutForm.addEventListener("submit", (e) => {
-                e.preventDefault();
-                // simpele validatie
-                if (!checkoutForm.reportValidity()) return;
+    if (qtyPlus)
+        qtyPlus.addEventListener("click", () => {
+            if (!qtyInput) return;
+            const current = parseInt(qtyInput.value || "1", 10) || 1;
+            qtyInput.value = String(current + 1);
+            updateSummary();
+        });
 
-                const data = new FormData(checkoutForm);
-                const payload = Object.fromEntries(data.entries());
-                payload.aantal = String(getQty());
-                payload.totaalCenten = String(calcTotalCents());
+    if (qtyMinus)
+        qtyMinus.addEventListener("click", () => {
+            if (!qtyInput) return;
+            const current = parseInt(qtyInput.value || "1", 10) || 1;
+            qtyInput.value = String(Math.max(1, current - 1));
+            updateSummary();
+        });
 
-                console.log("Bestelling", payload);
-                alert("Bedankt! Je bestelling is ontvangen. Dit is een demo – betaalstap is niet gekoppeld.");
-                closeModal();
-            });
-        }
+    if (qtyInput) qtyInput.addEventListener("input", updateSummary);
+    if (donation) donation.addEventListener("input", updateSummary);
 
-        // init values
-        setQty(getQty());
-    }
+    if (form)
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            // Hier zou je een echte betaalflow kunnen integreren (Mollie/Stripe e.d.)
+            // Voor nu: eenvoudige bevestiging en reset
+            closeModal();
+            alert("Bedankt voor je bestelling! We sturen je een bevestiging per e‑mail.");
+            form.reset();
+            if (qtyInput) qtyInput.value = "1";
+            updateSummary();
+        });
 
-    // start everything
-    init();
-    wireProduct();
+    // Initialiseer samenvatting bij laden
+    updateSummary();
 })();
+
